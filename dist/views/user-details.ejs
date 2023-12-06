@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Edit User Details</title>
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        margin: 0;
+        background-color: #f8f9fa;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .custom-box {
+        padding: 20px;
+        margin: 10px;
+        text-align: center;
+        border-radius: 10px;
+      }
+
+      .user-details-box {
+        background-color: #6c757d;
+        color: #fff;
+      }
+
+      .button-box {
+        margin-top: 20px;
+      }
+
+      .profile-section {
+        margin-top: 20px;
+      }
+
+      .profile-heading {
+        font-size: 24px;
+        font-weight: bold;
+        margin-bottom: 10px;
+      }
+
+      .profile-description {
+        margin-bottom: 20px;
+      }
+
+      .btn {
+        background-color: #adb5bd;
+        color: #000;
+        border: none;
+      }
+
+      .edit-input {
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="custom-box user-details-box">
+            <h2 class="profile-heading">User Profile</h2>
+
+            <div class="profile-section">
+              <h3 class="profile-heading">User ID</h3>
+              <p class="profile-description"><%= user.id %></p>
+            </div>
+
+            <div class="profile-section">
+              <h3 class="profile-heading">Name</h3>
+              <p class="profile-description"><%= user.first_name %></p>
+            </div>
+
+            <div class="profile-section">
+              <h3 class="profile-heading">Last Name</h3>
+              <p class="profile-description"><%= user.last_name %></p>
+            </div>
+
+            <div class="button-box">
+              <a href="/users" class="btn btn-light btn-sm">Back to Details</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="profile-section">
+            <h3 class="profile-heading">Edit Details</h3>
+            <form action="/users/<%= user.id %>" method="POST">
+              <label for="editFirstName" class="form-label">First Name:</label>
+              <input
+                type="text"
+                class="form-control edit-input"
+                id="editFirstName"
+                name="editFirstName"
+                value="<%= user.first_name %>"
+                required
+              />
+
+              <label for="editLastName" class="form-label">Last Name:</label>
+              <input
+                type="text"
+                class="form-control edit-input"
+                id="editLastName"
+                name="editLastName"
+                value="<%= user.last_name %>"
+                required
+              />
+
+              <button
+                id="save"
+                type="submit"
+                class="mt-5 btn btn-danger btn-sm"
+              >
+                Save Changes
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script></script>
+    <!-- Bootstrap JS ve Popper.js -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
